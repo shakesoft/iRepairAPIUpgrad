@@ -1,0 +1,24 @@
+﻿@page "/"
+@using BEZNgCore.ApiClient
+@using BEZNgCore.Maui.Services.Navigation
+@inherits BEZNgCoreMainLayoutPageComponentBase
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        var navigationService = Resolve<INavigationService>();
+
+        var context = Resolve<IApplicationContext>();
+        
+        var isHost = context.LoginInfo.Tenant == null;
+        
+        if (isHost)
+        {
+            navigationService.NavigateTo("/" + NavigationUrlConsts.HostDashboard);
+            return;
+        }
+        
+        navigationService.NavigateTo("/" + NavigationUrlConsts.TenantDashboard);
+    }
+}

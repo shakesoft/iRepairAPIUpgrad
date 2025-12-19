@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\common.props"></Import>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>BEZNgCore.Application</AssemblyName>
+    <PackageId>BEZNgCore.Application</PackageId>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>BEZNgCore</RootNamespace>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FirebaseAdmin" Version="3.2.0" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.68.0" />
+    <PackageReference Include="IronPdf" Version="2025.11.12" />
+    <PackageReference Include="MiniExcel" Version="1.42.0" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="NPOI" Version="2.7.5" />
+    <PackageReference Include="QRCoder" Version="1.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BEZNgCore.Application.Shared\BEZNgCore.Application.Shared.csproj" />
+    <ProjectReference Include="..\BEZNgCore.Core\BEZNgCore.Core.csproj" />
+    <ProjectReference Include="..\BEZNgCore.EntityFrameworkCore\BEZNgCore.EntityFrameworkCore.csproj" />
+  </ItemGroup>
+</Project>

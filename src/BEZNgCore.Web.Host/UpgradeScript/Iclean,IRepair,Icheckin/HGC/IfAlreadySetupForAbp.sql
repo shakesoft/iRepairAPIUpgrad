@@ -1,0 +1,13 @@
+﻿DROP TABLE AppUserDelegations, AppSubscriptionPaymentsExtensionData, AppSubscriptionPayments,AppRecentPasswords,AppInvoices,AppFriendships
+,AppChatMessages,AppBinaryObjects,AbpWebhookSubscriptions,AbpWebhookSendAttempts,AbpWebhookEvents,AbpUserTokens,AbpUserRoles,
+AbpUserOrganizationUnits,AbpUserNotifications,AbpUserLogins,AbpUserLoginAttempts,AbpUserClaims,AbpUserAccounts,AbpTenants,AbpTenantNotifications
+,AbpSettings,AbpRoleClaims,AbpPersistedGrants,AbpPermissions,AbpOrganizationUnits,AbpOrganizationUnitRoles,AbpNotificationSubscriptions,
+AbpNotifications,AbpLanguageTexts,AbpLanguages,AbpFeatures,AbpEntityPropertyChanges,AbpEntityChanges,AbpEditions,AbpDynamicPropertyValues
+,AbpDynamicEntityPropertyValues,AbpDynamicEntityProperties,AbpBackgroundJobs,AbpAuditLogs,__EFMigrationsHistory;
+
+DROP TABLE 
+AbpDynamicProperties,
+AbpEntityChangeSets,
+AbpRoles;
+
+DROP TABLE AbpUsers;
