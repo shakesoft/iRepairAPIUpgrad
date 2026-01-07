@@ -9,5 +9,9 @@ public interface ISessionAppService : IApplicationService
     Task<GetCurrentLoginInformationsOutput> GetCurrentLoginInformations();
 
     Task<UpdateUserSignInTokenOutput> UpdateUserSignInToken();
+
+    Task<DisplayAlternateLoginPageOutput> GetAlternateLoginPage();
+
+    Task<DisplayAlternateLoginPageOutput> GetiCleanAlternateLoginPage();
 }
 

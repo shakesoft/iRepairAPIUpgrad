@@ -36,6 +36,8 @@ public class SessionAppService : BEZNgCoreAppServiceBase, ISessionAppService
     private readonly ILocalizationContext _localizationContext;
     private readonly IRepository<UserLogin, long> _userLoginRepository;
 
+    //For AlternateLoginPage
+    private readonly IAppConfigurationAccessor _appConfigurationAccessor;
     public SessionAppService(
         IUiThemeCustomizerFactory uiThemeCustomizerFactory,
         ISubscriptionPaymentRepository subscriptionPaymentRepository,
@@ -44,7 +46,8 @@ public class SessionAppService : BEZNgCoreAppServiceBase, ISessionAppService
         EditionManager editionManager,
         ISettingManager settingManager,
         ILocalizationContext localizationContext,
-        IRepository<UserLogin, long> userLoginRepository)
+        IRepository<UserLogin, long> userLoginRepository,
+        IAppConfigurationAccessor appConfigurationAccessor)
     {
         _uiThemeCustomizerFactory = uiThemeCustomizerFactory;
         _subscriptionPaymentRepository = subscriptionPaymentRepository;
@@ -54,6 +57,8 @@ public class SessionAppService : BEZNgCoreAppServiceBase, ISessionAppService
         _settingManager = settingManager;
         _localizationContext = localizationContext;
         _userLoginRepository = userLoginRepository;
+        _appConfigurationAccessor = appConfigurationAccessor;
+
     }
 
     [DisableAuditing]
@@ -129,6 +134,15 @@ public class SessionAppService : BEZNgCoreAppServiceBase, ISessionAppService
         });
     }
 
+    public async Task<DisplayAlternateLoginPageOutput> GetAlternateLoginPage()
+    {
+        return new DisplayAlternateLoginPageOutput { DisplayLoginPage = Convert.ToInt32(_appConfigurationAccessor.Configuration["AlternateLoginPage:iRepairDisplay"]) };
+    }
+
+    public async Task<DisplayAlternateLoginPageOutput> GetiCleanAlternateLoginPage()
+    {
+        return new DisplayAlternateLoginPageOutput { DisplayLoginPage = Convert.ToInt32(_appConfigurationAccessor.Configuration["AlternateLoginPage:iCleanDisplay"]) };
+    }
     private async Task<TenantLoginInfoDto> GetTenantLoginInfo(int tenantId)
     {
         var tenant = await TenantManager.Tenants
